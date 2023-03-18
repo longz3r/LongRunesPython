@@ -1,17 +1,11 @@
+from getRune import getRune
+
 async def createPage(connection, championName):
     pages = await connection.request('get', "/lol-perks/v1/pages")
     pages = await pages.json()
 
-    data={'autoModifiedSelections': [],
-            'current': True,
-            'isActive': True,
-            'isDeletable': True,
-            'isEditable': True,
-            'name': 'Page adasdadsad',
-            'order': 0,
-            'primaryStyleId': 8100,
-            'selectedPerkIds': [8124, 8143, 8120, 8134, 9105, 8299, 5005, 5002, 5001],
-            'subStyleId': 8000}
+    data=getRune(championName)
+    print(data)
     
 
     if len(pages) == 0:

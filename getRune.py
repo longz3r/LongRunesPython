@@ -40,8 +40,33 @@ def getRune(championName):
     print(assRunes[str(name2[4])], assRunes[str(name2[0])],  assRunes[str(name2[5])])
     if name2[0] != name2[5]:
         for i in range(1,100):
-            print("nigga")
+            print("Please report this champion name to Long Zer#1086 (discord)")
+    if name[5] == "6361":
+        name[5] = "nimbuscloak"
     print(name[4:10])
-    print(name[-3:])
+    # print(name[10:13])
+    # print(name)
 
-getRune("maokai")
+    runes = {
+            'current': True,
+            'isActive': True,
+            'isDeletable': True,
+            'isEditable': True,
+            'name': f'LongRunes: {championName}',
+            'order': 0,
+            'primaryStyleId': name2[4],
+            'selectedPerkIds': [],
+            'subStyleId': name2[0]}
+
+    with open('runes.json', 'r') as f:
+        runesQuerry = json.load(f)
+
+
+    for rune in name[4:10]:
+        runes['selectedPerkIds'].append(runesQuerry[rune])
+    for rune in name[10:13]:
+        runes['selectedPerkIds'].append(runesQuerry[rune])
+
+    return runes
+
+# getRune("masteryi")

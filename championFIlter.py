@@ -13,9 +13,9 @@ def filter_data(data):
     for key, value in data['data'].items():
         filtered_champion = {
             "key": value["key"],
-            "name": value["name"]
+            "name": value["name"].replace(" ", "")
         }
-        filtered_data[value["key"]] = filtered_champion["name"]
+        filtered_data[value["key"]] = filtered_champion["name"].lower()
     return filtered_data
 
 # Call the filter_data function and write the result to a file
