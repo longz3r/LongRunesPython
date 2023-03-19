@@ -4,7 +4,8 @@ import json
 
 def getRune(championName):
     # Make a GET request to the website
-    response = requests.get(f'https://www.metasrc.com/5v5/champion/{championName.lower()}')
+    requestChampion = championName.replace("'", "")
+    response = requests.get(f'https://www.metasrc.com/5v5/champion/{requestChampion.lower().replace(" ", "")}')
 
     # Parse the HTML content of the page using BeautifulSoup
     soup = BeautifulSoup(response.content, 'html.parser')
@@ -69,4 +70,4 @@ def getRune(championName):
 
     return runes
 
-# getRune("masteryi")
+# getRune("K'Sante")
