@@ -24,6 +24,8 @@ def filter_data(data):
                     rune['key'] = "lethaltempotemp"
                 if rune['key'].lower() == "tasteofblood":
                     rune['key'] = "greenterror_tasteofblood"
+                if rune['key'].lower() == "celerity":
+                    rune['key'] = "celeritytemp"
                 filtered_data[rune['key'].lower()] = rune['id']
     return filtered_data
 

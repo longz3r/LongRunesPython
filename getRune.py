@@ -4,8 +4,10 @@ import json
 
 def getRune(championName):
     # Make a GET request to the website
+    print("begin GET request")
     requestChampion = championName.replace("'", "")
     response = requests.get(f'https://www.metasrc.com/5v5/champion/{requestChampion.lower().replace(" ", "")}')
+    print("GET request end")
 
     # Parse the HTML content of the page using BeautifulSoup
     soup = BeautifulSoup(response.content, 'html.parser')
